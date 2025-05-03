@@ -44,7 +44,7 @@ static void print_btime(const char *path) {
     if (stx.stx_mask & STATX_BTIME) {
         time_t sec = stx.stx_btime.tv_sec;
         suseconds_t usec = stx.stx_btime.tv_usec;
-        printf("%s\t%ldn%ld\n", (long)sec, (long)usec);
+        printf("%s\t%ldu%ld\n", (long)sec, (long)usec);
     } else {
         fprintf(stderr, "%s: creation time not available\n", path);
     }
@@ -57,7 +57,7 @@ static void print_btime(const char *path) {
     }
 
     time_t sec = st.st_birthtim.tv_sec;
-    suseconds_t usec = st.st_birthtim.tv_nsec;
+    suseconds_t nsec = st.st_birthtim.tv_nsec;
 
     printf("%s\t%ldn%ld\n", path, (long)sec, (long)usec);
 #endif
