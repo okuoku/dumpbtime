@@ -57,9 +57,9 @@ static void print_btime(const char *path) {
     }
 
     time_t sec = st.st_birthtim.tv_sec;
-    suseconds_t nsec = st.st_birthtim.tv_nsec;
+    long nsec = st.st_birthtim.tv_nsec;
 
-    printf("%s\t%ldn%ld\n", path, (long)sec, (long)usec);
+    printf("%s\t%ldn%ld\n", path, (long)sec, (long)nsec);
 #endif
 }
 
