@@ -43,8 +43,8 @@ static void print_btime(const char *path) {
 
     if (stx.stx_mask & STATX_BTIME) {
         time_t sec = stx.stx_btime.tv_sec;
-        suseconds_t usec = stx.stx_btime.tv_usec;
-        printf("%s\t%ldu%ld\n", (long)sec, (long)usec);
+        long nsec = stx.stx_btime.tv_nsec;
+        printf("%s\t%ldn%ld\n", path, (long)sec, (long)nsec);
     } else {
         fprintf(stderr, "%s: creation time not available\n", path);
     }
